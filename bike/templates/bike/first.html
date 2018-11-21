@@ -1,0 +1,11 @@
+{% if a %}
+<h1>WELCOME Bikes!!!!!!!!!</h1>
+
+<u1>
+    {% for all in a %}
+    <li>{{ all.Model_name }}</li>
+    {% endfor %}
+</u1>
+{% else %}
+    <h3>ADD BIKES</h3>
+{% endif %}
