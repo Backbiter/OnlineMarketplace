@@ -12,42 +12,7 @@
     <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'home/css/styles.css' %}">
-    <style>
-        header{
-            font-family: 'Text Me One';
-            font-size: 1.5rem;
-        }
-        section {
-height: 1000rem;
-}
-.aligner {
-  margin-left: 8rem;
-}
-.pricetext{
-    color:red;font-size: 2.3rem;
-    text-align: center;
-    font-family: 'Text Me One';
-}
-
-.nowtext{
-    font-size: 2.3rem;
-    font-family: 'Text Me One';
-    margin-top: 0rem;
-    text-align: center;
-}
-.beforetext{
-    font-size: 1.2rem;
-    font-family: 'Text Me One';
-    text-align: center;
-    margin-bottom: 0rem;
-}
-.coolfont{
-    font-family: 'Text Me One';
-}
-.strikedprice{
-
-}
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
 </header>
 
 <body>
@@ -73,7 +38,7 @@ height: 1000rem;
                 <div class="collapse navbar-collapse justify-content-end" style="margin-bottom:0.8rem" id="navbarSupportedContent">
                     <ul class="navbar-nav pull-right">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">HOME</a>
+                            <a class="nav-link active" href="{% url 'home:index' %}">HOME</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -88,7 +53,7 @@ height: 1000rem;
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SELL</a>
+                            <a class="nav-link" href="{% url 'bike:bike-add' %}">SELL</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">ABOUT</a>
@@ -96,6 +61,17 @@ height: 1000rem;
                         <li class="nav-item">
                             <a class="nav-link" href="#">CONTACT</a>
                         </li>
+
+                        {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home:login' %}">LOGIN</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home:user-logout' %}">LOGOUT</a>
+                        </li>
+                        {% endif %}
+
                     </ul>
                     <div class="input-group col-2">
                         <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">

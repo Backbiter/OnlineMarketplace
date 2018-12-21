@@ -12,4 +12,6 @@ urlpatterns = [
 
     #/bike/add/
     url(r'^add/$', views.BikeInsert.as_view(), name='bike-add'),
+
+    url(r'^insert/$', views.BikeInsert.as_view(), name='bike-insert'),
 ]
