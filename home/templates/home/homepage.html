@@ -1,1 +1,56 @@
-<h1>WELCOME !!!!!!!!!</h1>
+{% extends 'home/base.html' %}
+
+{% block body %}
+    <div id="carouselExampleFade" class="carousel slide" data-interval="2000" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100 img-responsive" {% load static %} src= {% static "home/assets/hornet1.jpg" %} alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="font-family:Titillium Web;font-size: 5rem">HORNET WEEKENDS</h1>
+                        <p style="font-family:Titillium Web;font-size: 3rem">Get 20% off on all hornet models on
+                            weekends by applying code HORNET20</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 img-responsive" {% load static %} src={% static "home/assets/gixer.jpg" %} alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 style="font-family:Titillium Web;font-size: 5rem">GIXER DHAMAKA</h1>
+                        <p style="font-family:Titillium Web;font-size: 3rem">Flat Rs 5000 Off on all Gixer models.
+                            Hurry up offer valid only till 12th December 2018</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 img-responsive" {% load static %} src={% static "home/assets/pulsar.jpg" %} alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+    <div class="container-fluid">
+
+        <div class="row mt-sm-5 mt-md-5 ml-md-3 mr-md-3">
+        {% for bike in bike_all %}
+         <div class="col-sm-12 col-md-3 mt-md-0 ">
+                <div class="card" style="width: 24rem;">
+                    <a href="{% url 'bike:details' bike.id %}"><img class="card-img-top" src="{{ bike.Model_img.url }}" alt="Card image cap"></a>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{ bike.Model_name }} </h5>
+                        <p class="card-text">{{ bike.Model_Info }}</p>
+                        <p class="beforetext">BEFORE : <del>{{ bike.Price_before }}</del></p>
+                        <p class="nowtext">NOW : <span class="pricetext">{{ bike.Price_after }}</span></p>
+                        <a href="#" class="btn btn-primary aligner">Buy Now</a>
+                    </div>
+                </div>
+         </div>
+        {% endfor %}
+         </div>
+
+    </div>
+{% endblock %}

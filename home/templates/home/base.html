@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<header>
+    <title>{% block title %}ONLINE MARKETPLACE{% endblock %}</title>
+    {% load staticfiles %}
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+    <link href="https://fonts.googleapis.com/css?family=Text+Me+One|Titillium+Web:700" rel="stylesheet">
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/styles.css' %}">
+    <style>
+        header{
+            font-family: 'Text Me One';
+            font-size: 1.5rem;
+        }
+        section {
+height: 1000rem;
+}
+.aligner {
+  margin-left: 8rem;
+}
+.pricetext{
+    color:red;font-size: 2.3rem;
+    text-align: center;
+    font-family: 'Text Me One';
+}
+
+.nowtext{
+    font-size: 2.3rem;
+    font-family: 'Text Me One';
+    margin-top: 0rem;
+    text-align: center;
+}
+.beforetext{
+    font-size: 1.2rem;
+    font-family: 'Text Me One';
+    text-align: center;
+    margin-bottom: 0rem;
+}
+.coolfont{
+    font-family: 'Text Me One';
+}
+.strikedprice{
+
+}
+    </style>
+</header>
+
+<body>
+    {% load staticfiles %}
+    <script src="{% static 'home/js/jquery.min.js' %}"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{% static 'home/js/popper.min.js' %}"></script>
+    <script src="{% static 'home/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home/js/test.js' %}"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <header>
+        <nav class="navbar  navbar-expand-lg navbar-light top-navbar" data-toggle="sticky-onscroll">
+            <div class="container-fluid mx-5">
+                <a class="navbar-brand" href="{% url 'home:index' %}">
+                    <h1 style="font-size: 3rem">ONLINE MARKETPLACE</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" style="margin-bottom:0.8rem" id="navbarSupportedContent">
+                    <ul class="navbar-nav pull-right">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                BUY
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">MOPEDS</a>
+                                <a class="dropdown-item" href="#">BIKES</a>
+                                <a class="dropdown-item" href="#">SCOOTERS</a>
+                                <a class="dropdown-item" href="#">BICYCLES</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SELL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CONTACT</a>
+                        </li>
+                    </ul>
+                    <div class="input-group col-2">
+                        <input class="form-control py-2 border-right-0 border" type="search" value="search" id="example-search-input">
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+                        </span>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+        </header>
+{% block body %}
+{% endblock %}
+</body>
+
+<footer class="page-footer font-small blue pt-4">
+
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3"><a href="#"> Contact Us </a> | <a href="#">Support </a> | © 2018
+        Copyright:
+        <a href="#"> onlinemarketplace.com</a>
+    </div>
+    <!-- Copyright -->
+
+    </footer>
+
+</html>
