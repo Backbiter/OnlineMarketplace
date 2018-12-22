@@ -1,6 +1,6 @@
 from django.db import models
 
-Cities = (('p','Pune'), ('b','Bangalore'), ('m','Mumbai'), )
+Cities = (('p', 'Pune'), ('b', 'Bangalore'), ('m', 'Mumbai'), )
 
 
 # Create your models here.

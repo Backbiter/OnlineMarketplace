@@ -1,3 +1,8 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Bikes{% endblock %}
+
+{% block body %}
 {% if bike_all %}
 <h1>WELCOME Bikes!!!!!!!!!</h1>
 
@@ -9,3 +14,4 @@
 {% else %}
     <h3>ADD BIKES</h3>
 {% endif %}
+{% endblock %}
