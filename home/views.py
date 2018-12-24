@@ -5,7 +5,7 @@ from bike.models import TwoWheeler
 from home.models import UserInfo
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
-from .forms import UserForm, LoginForm, UserInfoForm
+from .forms import UserForm, LoginForm, UserInfoForm, TrialForm
 from django.forms import ModelForm
 
 
@@ -85,3 +85,32 @@ def logout_user(request):
     logout(request)
     return redirect('home:index')
 
+
+class TrialView(View):
+    form_class = TrialForm
+    template_name = 'home/register.html'
+
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home:index')
+        else:
+            return redirect('bike:index')
+
+
+def register(request):
+    if request.method == 'POST':
+        form = TrialForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home:index')
+        else:
+            return redirect('bike:index')
+    else:
+        form = TrialForm(None)
+        return render(request, 'home/trial.html', {'form': form})

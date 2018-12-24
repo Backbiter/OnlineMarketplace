@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^logout/$', views.logout_user, name='user-logout'),
 
     url(r'^userinfo/$', views.UserInfoView.as_view(), name='user-info'),
+
+    url(r'^trial/$', views.register, name='trial'),
 ]
